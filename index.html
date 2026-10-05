@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>FoodCheck</title>
+  <meta name="description" content="Scan or search a packaged food and see allergens, meat, eggs and hidden animal or alcohol ingredients.">
+  <meta name="theme-color" content="#1f7a4d">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🥫</text></svg>">
+  <link rel="stylesheet" href="styles.css">
+  <script src="config.js"></script>
+  <script src="rules.js"></script>
+  <script src="app.js"></script>
+</head>
+<body>
+  <header>
+    <h1>FoodCheck</h1>
+    <p>Scan a barcode, snap the ingredients, or type a product. We'll flag allergens, meat, eggs and hidden ingredients.</p>
+  </header>
+
+  <main>
+    <form id="form" autocomplete="off">
+      <label for="q" class="sr">Product name, barcode or ingredient list</label>
+      <textarea id="q" rows="2" placeholder="e.g. Trader Joe's Joe-Joe's, 044000032029, or paste an ingredient list"></textarea>
+      <div class="actions">
+        <button type="submit" class="primary">Check</button>
+        <label class="btn" for="photo">📷 Photo</label>
+        <input id="photo" type="file" accept="image/*" class="sr">
+      </div>
+      <p class="tiny">Photo tip: the barcode works best. If there isn't one, photograph the ingredients panel.</p>
+    </form>
+
+    <details id="prefsBox">
+      <summary><b>My concerns</b> <span id="prefSummary"></span></summary>
+      <div id="prefs"></div>
+      <p class="tiny">Saved on this device only.</p>
+    </details>
+
+    <div id="results" aria-live="polite"></div>
+  </main>
+
+  <footer>
+    <p><b>Not medical advice.</b> Ingredient data comes from <a href="https://world.openfoodfacts.org" target="_blank" rel="noopener">Open Food Facts</a> and <a href="https://fdc.nal.usda.gov" target="_blank" rel="noopener">USDA FoodData Central</a> and can be out of date or wrong. Always read the label on the package you're holding, and ask the brand if you have a severe allergy or strict religious rule.</p>
+  </footer>
+</body>
+</html>
